@@ -4,7 +4,7 @@
 #include <Servo.h>
 #include "octosnake.h"
 
-class MiniKame{
+class MiniKame {
 
     public:
         void init();

@@ -4,111 +4,31 @@
 #include <Servo.h>
 #include "octosnake.h"
 #include "minikame.h"
-
-const char* ssid = "kame";
-const char* password = "asdf";
+#include "sensoreyes.h"
+#include "webconnector.h"
+#include "commandexecutor.h"
 
 MiniKame robot;
-WiFiServer server(80);
-bool running=0;
+SensorEyes eyes;
+WebConnector connector;
+CommandExecutor executor;
 
 void setup() {
-    WiFi.mode(WIFI_AP);
-    WiFi.softAP(ssid, password);
-    server.begin();
-    Serial.begin(115200);
-
-    delay(1000);
-    robot.init();
+  Serial.begin(115200);
+  delay(1000);
+  connector.init();
+  robot.init();
+  eyes.init();
+  executor.init(&robot);
 }
-
-void parseData(String data){
-
-    //switch (data.substring(0,plusIndex).toInt()){
-    switch (data.toInt()){
-
-        case 1:
-            robot.walk(1,550);
-            running = 1;
-            break;
-
-        case 2:
-
-            break;
-
-        case 3:
-            robot.turnL(1,550);
-            running = 1;
-            break;
-
-        case 4:
-            robot.turnR(1,550);
-            running = 1;
-            break;
-
-        case 5:
-            //STOP
-            running = 0;
-            break;
-
-        case 6: //heart
-            robot.pushUp(2,1400);
-            break;
-
-        case 7: //fire
-            robot.upDown(4,250);
-            break;
-
-        case 8: //skull
-            robot.jump();
-            break;
-
-        case 9: //cross
-            robot.hello();
-            break;
-
-        case 10: //punch
-        //robot.moonwalkL(4,2000);
-        robot.frontBack(4,200);
-            break;
-
-        case 11: //mask
-            robot.dance(2,1000);
-            break;
-
-        default:
-            robot.home();
-            break;
-    }
-}
-
-String input;
 
 void loop() {
-    WiFiClient client = server.available();
-    if (!client) {
-        Serial.println(WiFi.localIP());
-        delay(1000);
-    }
-    while (client.connected()) {
-        if (running){
-            Serial.println("running");
-            if (client.available()) {
-                while(client.available()) input = client.readStringUntil('+');
-                parseData(input);
-            }
-            else {
-                Serial.println("Keep Moving");
-                parseData(input);
-            }
-        }
-        else{
-            Serial.println("Normal mode");
-            if (client.available()) {
-                while(client.available()) input = client.readStringUntil('+');
-                parseData(input);
-            }
-            else robot.home();
-        }
-    }
+  // if there is a connection waiting, process it
+  connector.handleConnection();
+  // get the active command
+  String activeCommand = connector.getActiveCommand();
+  // check if we still have room before us
+  //eyes.measureDistance();
+  // execute the active command, which calls the robot
+  executor.parseCommand(activeCommand);
 }

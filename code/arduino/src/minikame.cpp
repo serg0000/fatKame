@@ -6,23 +6,27 @@ int angToUsec(float value){
 
 void MiniKame::init(){
 
-    board_pins[0] = D1;
-    board_pins[1] = D4,
-    board_pins[2] = D8;
-    board_pins[3] = D6;
-    board_pins[4] = D7;
-    board_pins[5] = D5;
-    board_pins[6] = D2;
-    board_pins[7] = D3;
 
-    trim[0] = 1;
-    trim[1] = -8;
-    trim[2] = 6;
-    trim[3] = 4;
-    trim[4] = 2;
-    trim[5] = -5;
-    trim[6] = 8;
-    trim[7] = 5;
+    board_pins[0] = D1; // front left inner
+    board_pins[1] = D4, // front right inner
+    board_pins[2] = D8; // front left outer
+    board_pins[3] = D6; // front right outer
+    board_pins[4] = D7; // back left inner
+    board_pins[5] = D5; // back right inner
+    board_pins[6] = D2; // back left outer
+    board_pins[7] = D3; // back right outer
+
+    // inner: 0, 1, 4, 5
+
+    trim[0] = 0;
+    trim[1] = 0;
+    trim[2] = 0;
+    trim[3] = 0;
+    trim[4] = 0;
+    trim[5] = 0;
+    trim[6] = 0;
+    trim[7] = 10;
+
     for (int i=0; i<8; i++) reverse[i] = 0;
 
 
