@@ -10,11 +10,11 @@ This is a fork of the miniKame, I'll use it to extend the functionality of my ad
 - Have a WebController which serves a simple page and gets called by ajax calls from this webpage for the robot actions
 - Use the ultrasonic sensor for very simple "Spatzenhirn" autonomous mode where the bot avoids bumping into stuff
 
-For details on the bot, please take a look at the [¿splendid original miniKame?](https://github.com/bqlabs/miniKame/wiki/BOM).
+For details on the bot, please take a look at the [splendid original miniKame](https://github.com/bqlabs/miniKame).
 
 # License
 
-Relative of miniKame and [Kame](https://github.com/bqlabs/kame)
+Relative of [miniKame](https://github.com/bqlabs/miniKame) and [Kame](https://github.com/bqlabs/kame)
 
 <p align="center">
 <img src="doc/images/by-sa.png" width="200" align = "center">
