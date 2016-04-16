@@ -13,6 +13,11 @@ This is a fork of the miniKame, I'll use it to extend the functionality of my ad
 
 For details on the bot, please take a look at the [splendid original miniKame](https://github.com/bqlabs/miniKame).
 
+# More Info and Pictures
+
+Please visit
+http://www.thingiverse.com/thing:1483635
+
 # License
 
 Relative of [miniKame](https://github.com/bqlabs/miniKame) and [Kame](https://github.com/bqlabs/kame)
