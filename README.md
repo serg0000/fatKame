@@ -16,11 +16,12 @@ For details on the bot, please take a look at the [splendid original miniKame](h
 # More Info and Pictures
 
 Please visit
-http://www.thingiverse.com/thing:1483635
+https://www.thingiverse.com/thing:4099565
 
 # License
 
-Relative of [miniKame](https://github.com/bqlabs/miniKame) and [Kame](https://github.com/bqlabs/kame)
+Relative of [miniKame](https://github.com/bqlabs/miniKame), [Kame](https://github.com/bqlabs/kame)
+and [FatKame ](https://www.thingiverse.com/thing:1483635)
 
 <p align="center">
 <img src="doc/images/by-sa.png" width="200" align = "center">
