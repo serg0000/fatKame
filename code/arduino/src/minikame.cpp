@@ -6,15 +6,15 @@ int angToUsec(float value){
 
 void MiniKame::init(){
 
-
-    board_pins[0] = D1; // front left inner
-    board_pins[1] = D4, // front right inner
-    board_pins[2] = D8; // front left outer
-    board_pins[3] = D6; // front right outer
-    board_pins[4] = D7; // back left inner
-    board_pins[5] = D5; // back right inner
-    board_pins[6] = D2; // back left outer
-    board_pins[7] = D3; // back right outer
+   // ok
+    board_pins[0] = D1; //D1 front left inner
+    board_pins[1] = D4, //D4 front right inner
+    board_pins[2] = D2; //D8 front left outer
+    board_pins[3] = D3; //D6 front right outer
+    board_pins[4] = D7; //D7 back left inner
+    board_pins[5] = D5; //D5 back right inner
+    board_pins[6] = D8; //D2 back left outer
+    board_pins[7] = D6; //D3 back right outer
 
     // inner: 0, 1, 4, 5
 
@@ -25,10 +25,17 @@ void MiniKame::init(){
     trim[4] = 0;
     trim[5] = 0;
     trim[6] = 0;
-    trim[7] = 10;
+    trim[7] = 0;
 
-    for (int i=0; i<8; i++) reverse[i] = 0;
-
+    //for (int i=0; i<8; i++) reverse[i] = 0;
+    reverse[0] = 0;
+    reverse[1] = 0;
+    reverse[2] = 1;
+    reverse[3] = 1;
+    reverse[4] = 0;
+    reverse[5] = 0;
+    reverse[6] = 1;
+    reverse[7] = 1;
 
     for(int i=0; i<8; i++) oscillator[i].setTrim(trim[i]);
     for(int i=0; i<8; i++) servo[i].attach(board_pins[i]);
